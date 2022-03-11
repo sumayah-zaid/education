@@ -1,0 +1,83 @@
+using System;
+namespace trip
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Vehicle car = new Vehicle();
+            car.Color="red";
+            car.Name="soma";
+            car.show();
+
+            
+        }
+    }
+}
+**************************************************
+using System;
+
+namespace trip
+{
+    class Vehicle{
+        string color;
+        double MaxSpeed;
+
+        public void show(){
+
+            Console.WriteLine ($"the color is {color} and Name speed is {Name}");
+
+        }
+
+       public string Color{
+            get{
+                return color;
+            }
+
+            set{
+               color= value;
+            }
+        }
+
+       public string Name{get;set;}
+
+    }
+}
+
+************************************************************
+using System;
+namespace trip
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+           
+           
+            Vehicle car = new Vehicle("from constracrout");
+            
+            Console.WriteLine($"My vehicle is holding {car.color} people");
+  
+        }
+    }
+}
+
+
+----------------------
+using System;
+
+namespace trip
+{
+    class Vehicle{
+      
+        public string color{get;set;}
+
+        public Vehicle(string val){
+           color=val; 
+        }
+
+    }
+
+}
+
+****************************************************Inheritance*********************************

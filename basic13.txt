@@ -1,0 +1,246 @@
+using System;
+using System.Collections.Generic;
+
+namespace Basic_13
+{
+    class Program
+                {
+                                //**********************************************************************
+
+                                // Print all of the integers from 1 to 255.
+                                public static void PrintNumbers()
+                                {
+                                    for (int i=1; i<256;i++){
+                                        Console.WriteLine(i);
+                                    }                                    
+                                }
+
+                        //**********************************************************************
+                                // Print all of the odd integers from 1 to 255.
+
+                                public static void PrintOdds()
+                                {
+                                    for (int i=1; i<256;i++){
+                                        if(i%2!=0){
+                                            Console.WriteLine(i);
+                                        }
+                                        
+                                    }  
+                                }
+                        //**********************************************************************
+
+                        // Print all of the numbers from 0 to 255, 
+                            // but this time, also print the sum as you go. 
+                            // For example, your output should be something like this:
+                            // New number: 0 Sum: 0
+                            // New number: 1 Sum: 1
+                            // New Number: 2 Sum: 3
+                                public static void PrintSum()
+                                {
+                                    int sum = 0;
+                                    for (int i=0; i<7;i++){
+                                        sum +=i;
+                                        Console.WriteLine($"New number: {i} Sum: {sum}");
+                                    }    
+                                
+                                }
+
+                        //*******************************************************************************************
+
+                        // Write a function that would iterate through each item of the given integer array and 
+                        // print each value to the console.
+                                public static void LoopArray(int[] numbers)
+                                {
+                            
+                                for (int idx =0; idx <numbers.Length;idx++){
+                                    Console.WriteLine($"the number is {numbers[idx]}");
+                                }
+                                }
+                        //*******************************************************************************************
+
+                        // Write a function that takes an integer array and prints and returns the maximum value in the array. 
+                        // Your program should also work with a given array that has all negative numbers (e.g. [-3, -5, -7]), 
+                        // or even a mix of positive numbers, negative numbers and zero.
+                            public static int FindMax(int[] numbers)
+                                {
+                                    // set curr max to smallest number possible
+                                    int max = int.MinValue;
+                                    foreach(int num in numbers)
+                                    {
+                                        if(max < num)
+                                            max = num;
+                                    }
+                                    Console.WriteLine($"Max is {max}");
+                                    return max;
+                                }
+
+                        //*******************************************************************************************
+
+                        // Write a function that takes an integer array and prints the AVERAGE of the values in the array.
+                        // For example, with an array [2, 10, 3], your program should write 5 to the console.
+                                public static void GetAverage(int[] numbers)
+                                {
+                                    int sum = 0;
+                                    foreach(int num in numbers)
+                                        sum += num;
+
+                                    float avg = (float)sum / numbers.Length;
+                                    Console.WriteLine($"Average is {avg}");
+                                    // return avg;
+                                }
+
+                        //**********************************************************************************************************************************
+                        // Write a function that creates, and then returns, an array that contains all the odd numbers between 1 to 255. 
+                        // When the program is done, this array should have the values of [1, 3, 5, 7, ... 255].
+
+                                public static int[] OddArray()
+                        {
+                            // first we must find size of array
+                                    int size = (255/2) + 1;
+                            // now we can make array, with size
+                                    int [] odd = new int[size];
+                                int num  =0;
+                            for (int i=1; i<256;i+=2){
+                                odd[num]=i;
+                                num++;
+                            }
+                            Console.WriteLine(odd);
+                            return odd; 
+                        }
+                        //*******************************************************************************************
+                        // Write a function that takes an integer array, and a integer "y" and returns the number of array values 
+                            // That are greater than the "y" value. 
+                            // For example, if array = [1, 3, 5, 7] and y = 3. Your function should return 2 
+                            // (since there are two values in the array that are greater than 3).
+                        public static int GreaterThanY(int[] numbers, int y)
+                        {
+                                int total = 0;
+                                for(int i = 0; i < numbers.Length; i++)
+                                {
+                                    if(numbers[i] > y)
+                                        total++;
+                                }
+                                Console.WriteLine(total);
+                                return total;
+                        }
+                        //*******************************************************************************************
+                         // Write a function that takes an integer array "numbers", and then multiplies each value by itself.
+                        // For example, [1,5,10,-10] should become [1,25,100,100]
+                        public static void SquareArrayValues(int[] numbers)
+                        {
+                             for(int i = 0; i < numbers.Length; i++)
+                                    {
+                                        numbers[i] = numbers[i] * numbers[i];
+                                        Console.WriteLine(numbers[i]);
+                                    }
+                        }
+                        //*******************************************************************************************
+                         // Given an integer array "numbers", say [1, 5, 10, -2], create a function that replaces any negative number with the value of 0. 
+                         // When the program is done, "numbers" should have no negative values, say [1, 5, 10, 0].
+
+                        public static void EliminateNegatives(int[] numbers)
+                        {
+                            for(int i = 0; i < numbers.Length; i++)
+                                        {
+                                            if(numbers[i] < 0)
+                                                numbers[i] = 0;
+                                                Console.WriteLine(numbers[i]);
+                                        }
+                               
+                        }
+                        //*******************************************************************************************
+
+                        // Given an integer array, say [1, 5, 10, -2], create a function that prints the maximum number in the array, 
+                         // the minimum value in the array, and the average of the values in the array.copy
+
+                        public static void MinMaxAverage(int[] numbers)
+                        {
+                                    int currMin = Int32.MaxValue,
+                                    currMax = Int32.MinValue,
+                                    sum = 0;
+                                
+                                foreach(int num in numbers)
+                                {
+                                    sum += num;
+                                    if(currMax < num)
+                                        currMax = num;
+                                    if(currMin > num)
+                                        currMin = num;
+                                }
+                                Console.WriteLine($"Min: {currMin}");
+                                Console.WriteLine($"Max: {currMax}");
+                                Console.WriteLine($"Average: {(float)sum / numbers.Length}");
+                        }
+                        //*******************************************************************************************
+                         // Given an integer array, say [1, 5, 10, 7, -2], 
+                            // Write a function that shifts each number by one to the front and adds '0' to the end. 
+                            // For example, when the program is done, if the array [1, 5, 10, 7, -2] is passed to the function, 
+                            // it should become [5, 10, 7, -2, 0].
+                        public static void ShiftValues(int[] numbers)
+                        {
+                            for(int i = 0; i < numbers.Length - 1; i++)
+                                {
+                                    numbers[i] = numbers[i + 1];
+                                }
+                                numbers[numbers.Length - 1] = 0;
+                                foreach(int x in numbers ){
+                                    Console.WriteLine(x);
+                                }
+                                
+                        }
+                        //*******************************************************************************************
+                         // Write a function that takes an integer array and returns an object array 
+                        // that replaces any negative number with the string 'Dojo'.
+                        // For example, if array "numbers" is initially [-1, -3, 2] 
+                        // your function should return an array with values ['Dojo', 'Dojo', 2].
+
+                        public static object[] NumToString(int[] numbers)
+                        {
+            
+                        object[] newArr = new object[numbers.Length];
+                        for(int i = 0; i < numbers.Length; i++){
+                           if(numbers[i] < 0){
+                                newArr[i] = "Dojo";
+                           }
+                               
+                            else{
+                                newArr[i] = numbers[i]; 
+                            }
+                             Console.WriteLine(newArr[i]);
+
+                      
+                        }
+                        
+                         return newArr;
+
+                        }
+
+
+                        static void Main(string[] args)
+                                {
+                                    // int y = 5;
+                                    int [] numbers = new int[4] {10,-2,3,-1};
+                                    // PrintNumbers();
+                                    // PrintOdds();
+                                    // PrintSum();
+                                    // LoopArray(numbers);
+                                    // FindMax(numbers);
+                                    // GetAverage(numbers);
+                                    // int[] odd=OddArray(); 
+                                    // foreach(int i in odd){
+                                    // Console.WriteLine(i);
+                                    // GreaterThanY(numbers, y);
+                                    //  SquareArrayValues( numbers);
+                                    //  EliminateNegatives(numbers);
+                                    //   MinMaxAverage( numbers);
+                                    // ShiftValues(numbers);
+                                   object[] objArr = NumToString( numbers);
+                               
+                                    
+
+                                   
+
+                                    }           
+
+        }
+    }
