@@ -1,0 +1,76 @@
+(Starting a Django project)
+
+Assuming: 
+- we have venv
+- we have installed django in the venv
+
+1- activating the venv (./venv/Scripts/activate) 
+2- django-admin startproject project-name
+3- cd .\project-name
+4- python .\manage.py startapp app-name
+5- in VScode: click File > Open Folder > project-name, the click "Select folder"
+6- cd .. (back to where venv is located) 
+7- reactivate venv: ./venv/Scripts/activate
+8- cd .\project-name 
+9- inside project-name/project-name/settings.py:
+	add the new app-name to:
+	INSTALLED_APPS = [
+		'app-name',	
+		.
+		.
+		.
+	]
+
+	then ctrl + s
+10- inside project-name/project-name/urls.py:
+	add root route: '' in:
+	
+	urslpatterns = [
+
+		path('', include('users.urls')),
+		.
+		.
+		.
+
+	]
+
+
+11- inside /project-name/app-name/urls.py:
+	add root route: '' in:
+
+	urlspatterns = [
+		path('', views.function-name)
+		.
+		.
+		.
+
+	]
+
+12- inside /project-name/app-name/urls.py:
+	add import:
+
+	from . import views
+
+
+13- inside /project-name/app-name/views.py:
+	add a function:
+
+	def function-name(request):
+		return render(request, 'file-name.html')
+		.
+		.
+		.
+
+14- create folder: ./templates inside ./project-name/app-name
+
+15- create folder: ./static inside ./project-name/app-name
+16- create folder: ./css inside ./project-name/app-name/static
+17- create file-name.html file inside ./project-name/app-name/templates
+
+18- within ./project-name: 
+	python .\manage.py runserver
+
+
+
+
+
